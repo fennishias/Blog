@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#151515">
+<meta name="msapplication-navbutton-color" content="#151515">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Welcome | Mariquita🐞mariquita-sec:~#</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Welcome" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I scan, I map, I exploit .... Red Team Princess—Crowned in Shells.!!!"/>
+<meta property="og:description" content="I scan, I map, I exploit …. Ghost is in your shell!!!" />
+<link rel="canonical" href="/Posts/CTF/hashcrak.html"/>
+<meta property="og:url" content="/Posts/CTF/hashcrak.html"/>
+<meta property="og:site_name" content="Mariquita🐞mariquita-sec:~"/>
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Welcome" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"I scan, I map, I exploit .... Red Team Princess—Crowned in Shells.!!!"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <a id="a-title" href="/">
+          <h1>Mariquita🐞mariquita-sec#</h1>
+        </a>
+        <h2>I scan, I map, I exploit .... Red Team Princess—Crowned in Shells.!!!</h2>
+
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1 id="welcome">PicoCTF 2025 – Rust Fixme 1 Write-Up</h1>
+        <h2>Challenge Overview</h2>
+
+<p>CTF challenges often push us to learn and apply new skills in unexpected ways. This time, I tackled a General Skills challenge that required fixing a Rust program. Since I’m still getting comfortable with Rust, this was a great learning opportunity!</p>
+<p><img src="/Posts/CTF/assets/rust1_img/challenge_overview.png" alt="challenge_description"/></p>
+
+<h1>Downloading and Extracting the Files</h1>
+<p>As usual, I started by downloading the challenge files using wget:</p>
+<p>The file came compressed as a .tar.gz, so I extracted it with:</p>
+
+<p><img src="/Posts/CTF/assets/rust1_img/tar_unzip.png" alt="tar_unzip"/></p>
+<p>Inside, I found a Rust project with the main code located in src/main.rs</p>
+
+<h1>Analyzing the Code</h1>
+<p>Opening main.rs, I saw a few syntax errors that prevented the program from compiling. I carefully went through the code to identify the issues</p>
+<p><img src="/Posts/CTF/assets/rust1_img/code main.png" alt="mainCode"/></p>
+
+<h1> Identifying and Fixing Errors</h1>
+<p>Here’s what I found:</p>
+<h3>Missing Semicolon</h3>
+<p>On line 5, the code was missing a semicolon:</p>
+<p>let key = String::from("CSUCKS")  // ❌ Missing semicolon</p>
+<p>✅ Fixed:let key = String::from("CSUCKS");</p>
+<h3>Incorrect Return Statement</h3>
+<p>On line 18, there was an incorrect return statement:</p>
+<p>ret;  // ❌ Incorrect syntax</p>
+<p>✅ Fixed:return;</p>
+<h3>Incorrect println!() Format</h3>
+<p>On line 25, the println!() function was incorrectly formatted. Rust uses {} as a placeholder for variables:</p>
+
+<h1>Compiling and Running the Code</h1>
+<p>cargo init      # Initialize Cargo project (if not already set up),</p>
+    <p>cargo build     # Compile the code,</p>
+   <p>cargo run       # Execute the program</p>
+<p><img src="/Posts/CTF/assets/rust1_img/flag.png"/></p>
+<p>And just like that—I got the flag!</p>
+<p>This was a fun and straightforward challenge—easy peasy! 😎</p>
+
+<p><br /> <br />
+<a href="/">Back To Home</a>
+<br /></p>
+
+      </section>
+    </div>
+  </body>
+</html>

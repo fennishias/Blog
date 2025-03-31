@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#151515">
+<meta name="msapplication-navbutton-color" content="#151515">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Welcome | Mariquita🐞mariquita-sec:~#</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Welcome" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I scan, I map, I exploit .... Red Team Princess—Crowned in Shells.!!!"/>
+<meta property="og:description" content="I scan, I map, I exploit …. Ghost is in your shell!!!" />
+<link rel="canonical" href="/Posts/CTF/rustfixme2.html"/>
+<meta property="og:url" content="/Posts/CTF/rustfixme2.html"/>
+<meta property="og:site_name" content="Mariquita🐞mariquita-sec:~"/>
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Welcome" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"I scan, I map, I exploit .... Red Team Princess—Crowned in Shells.!!!"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <a id="a-title" href="/">
+          <h1>Mariquita🐞mariquita-sec#</h1>
+        </a>
+        <h2>I scan, I map, I exploit .... Red Team Princess—Crowned in Shells.!!!</h2>
+
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1 id="welcome">PicoCTF 2025 – Rust Fixme 2 Write-Up</h1>
+        <h2>Challenge Overview</h2>
+
+<p>If you're new here, I recommend checking out my RustFixMe1 write-up first before diving into this one. This was another Rust challenge, and just like before, it involved debugging and fixing errors—this time related to borrowing and mutability.</p>
+
+<p><img src="/Posts/CTF/assets/rustfixme1/challenge_overview.png" alt="challenge_description"/></p>
+
+<h1>Downloading and Extracting the Files</h1>
+<p>Since the file was compressed, I extracted it using:</p>
+
+<p><img src="/Posts/CTF/assets/rustfixme1/tar.png" alt="tar_unzip"/></p>
+<p>Inside, I found a Rust project with the main code located in src/main.rs</p>
+
+<h1>Analyzing the Code</h1>
+<p>From the challenge description, I got a hint that the problem was related to borrowing. After reviewing the code, I found multiple issues related to mutable references and error handling.</p>
+
+<p><img src="/Posts/CTF/assets/rustfixme1/code1.png" alt="mainCode"/></p>
+<p><img src ="/Posts/CTF/assets/rustfixme1/code2.png" altt="lastCode"/></p>
+
+<h1> Passing a Mutable Reference in main()</h1>
+<p>Here’s what I found:</p>
+<h3>Making borrowed_string Mutable</h3>
+<p>In the decrypt() function, the parameter was defined as &String, which means it was immutable—the function could read it but not modify it.</p>
+
+<p>I added the key word mut to &String line 3 this allows the function to modify borrowed_string</p>
+<p>corrected code</p>
+<p><img src="/Posts/CTF/assets/rustfixme1/corrected code.png"></p>
+
+<h3>Incorrect Return Statement</h3>
+<p>In the main() function, party_foul was passed as &party_foul, but since decrypt() tries to modify it, it needed a mutable reference (&mut party_foul).</p>
+
+<p>Since decrypt() modifies party_foul, the variable itself also had to be declared as mut before passing it to the function:</p>
+<p>corrected code</p>
+<p><img src="/Posts/CTF/assets/rustfixme1/correted2.png"></p>
+
+<h1>Compiling and Running the Code</h1>
+<p>cargo init      # Initialize Cargo project (if not already set up),</p>
+    <p>cargo build     # Compile the code,</p>
+   <p> cargo run       # Execute the program</p>
+<p><img src="/Posts/CTF/assets/rustfixme1/flag.png"/></p>
+<p>And just like that—I got the flag!</p>
+<p>This was another great Rust debugging challenge! Fixing these issues deepened my understanding of Rust’s ownership model, and I’m looking forward to solving even tougher Rust CTF challenges.</p>
+<p>Until next time, happy hacking!</p>
+
+<p><br /> <br />
+<a href="/">Back To Home</a>
+<br /></p>
+
+      </section>
+    </div>
+  </body>
+</html>

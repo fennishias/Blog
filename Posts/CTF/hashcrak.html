@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#151515">
+<meta name="msapplication-navbutton-color" content="#151515">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Welcome | Mariquita🐞mariquita-sec:~#</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Welcome" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I scan, I map, I exploit .... Red Team Princess—Crowned in Shells.!!!"/>
+<meta property="og:description" content="I scan, I map, I exploit …. Ghost is in your shell!!!" />
+<link rel="canonical" href="/Posts/CTF/hashcrak.html"/>
+<meta property="og:url" content="/Posts/CTF/hashcrak.html"/>
+<meta property="og:site_name" content="Mariquita🐞mariquita-sec:~"/>
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Welcome" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"I scan, I map, I exploit .... Red Team Princess—Crowned in Shells.!!!"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <a id="a-title" href="/">
+          <h1>Mariquita🐞mariquita-sec#</h1>
+        </a>
+        <h2>I scan, I map, I exploit .... Red Team Princess—Crowned in Shells.!!!</h2>
+
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1 id="welcome">PicoCTF 2025 – Cryptography Challenge Write-up</h1>
+        <h2>Challenge Overview</h2>
+
+<p>In this challenge, I was provided with a netcat command to connect to a remote server. Upon connection, I received a series of hashed passwords and was required to crack them to retrieve the original plaintext values. The challenge tested my understanding of hashing algorithms and the importance of strong passwords.</p>
+
+<p><img src="/Posts/CTF/assets/hashcrack_img/crack description.png" alt="challenge_description"/></p>
+
+<h1>Connecting to the Challenge</h1>
+<p>I used the provided Netcat (nc) command to establish a connection with the challenge server:</p>
+
+<p><img src="/Posts/CTF/assets/hashcrack_img/hashcrack nc.png" alt="nectcat_connection"/></p>
+<p>Once connected, I was given a MD5 hash to crack.</p>
+
+<h1>Cracking the MD5 Hash</h1>
+<p>The first hash I received was an MD5 hash. Since MD5 is a weak hashing algorithm and vulnerable to dictionary attacks, I used CrackStation—an online hash-cracking tool.</p>
+<p>I copied the hash, pasted it into CrackStation, and obtained the plaintext password:</p>
+<p><img src="/Posts/CTF/assets/hashcrack_img/crackstation.png" alt="crackstation_img"/></p>
+<p>I submitted this password, and the challenge provided me with a second hash—this time, a SHA-1 hash.</p>
+
+<h1>Cracking the SHA-1 Hash</h1>
+
+<p>Similar to the previous step, I copied the SHA-1 hash and used CrackStation to decrypt it. The tool successfully provided the next password, which I submitted to the server.</p>
+<p><img src="/Posts/CTF/assets/hashcrack_img/first hash.png"/></p>
+<p><img src="/Posts/CTF/assets/hashcrack_img/crackstation second.png"/></p>
+
+<h1>Cracking the SHA-256 Hash</h1>
+<p>After successfully cracking the SHA-1 hash, I was given a third hash—this time, a SHA-256 hash. I repeated the same process by pasting it into CrackStation, and the result was:</p>
+<p><img src="/Posts/CTF/assets/hashcrack_img/third hash.png"/></p>
+<p><img src="/Posts/CTF/assets/hashcrack_img/crackstation 3.png"/></p>
+<p>I submitted this final password, and upon success, I received the flag!</p>
+<p><img src="/Posts/CTF/assets/hashcrack_img/last flag.png"/></p>
+<p>Flag:<strong>picoCTF{UseStr0nG_h@shEs_&PaSswDs!_869e658e}</strong>
+
+<p><br /> <br />
+<a href="/">Back To Home</a>
+<br /></p>
+
+      </section>
+    </div>
+  </body>
+</html>
