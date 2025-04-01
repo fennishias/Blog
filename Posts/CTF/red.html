@@ -49,7 +49,7 @@
 
     <header>
       <div class="container">
-        <a id="a-title" href="/">
+        <a id="a-title" href="/index.html">
           <h1>Mariquita🐞mariquita-sec#</h1>
         </a>
         <h2>I scan, I map, I exploit .... Red Team Princess—Crowned in Shells.!!!</h2>
@@ -63,12 +63,12 @@
         <h2>Challenge Overview</h2>
 
 <p>CTFs are always full of surprises, and forensic challenges never fail to test our ability to uncover hidden information. This time, I took on the "Red" challenge in PicoCTF 2025, where I had to dig into an image to find the hidden flag. Here’s how I solved it.</p>
-<p><img src="/Posts/CTF/assets/red_img/red_description.png "alt="description_pic"/></p>
+<p><img src="./assets/red_img/red_description.png "alt="description_pic"/></p>
 
 <h1>Downloading the Image</h1>
 <p>The challenge provided an image file named red.png. To download it, I used the wget command:</p>
 
-<p><img src="/Posts/CTF/assets/red_img/wget download.png" alt="wget_download"/></p>
+<p><img src="./assets/red_img/wget download.png" alt="wget_download"/></p>
 <p>This saved the image directly to my system for analysis.</p>
 
 <h1>Extracting Metadata with exiftool</h1>
@@ -83,18 +83,18 @@
   <li>Software used to edit the file</li>
 </ul>
 <p>To inspect the metadata of red.png, I ran:</p>
-<p><img src="/Posts/CTF/assets/red_img/exiftool1.png"/></p>
+<p><img src="./assets/red_img/exiftool1.png"/></p>
 <p>Unfortunately, nothing useful appeared in the output—no hidden text or suspicious metadata fields.</p>
 
 <h1>Using Steganography Tools</h1>
 <p>Since metadata didn't reveal anything, I suspected that the image might contain steganography—a technique used to hide data inside media files.</p>
 <p>After researching, I found zsteg, a tool designed to analyze PNG files for hidden information. I decided to try it out </p>
 
-<p><img src="/Posts/CTF/assets/red_img/zstegtool.png"/></p>
+<p><img src="./assets/red_img/zstegtool.png"/></p>
 <p>Boom!  It detected hidden Base64-encoded data inside the image.</p>
 <h1>Decoding the Base64 Data</h1>
 <p>Base64 encoding is often used to conceal readable text. To reveal the hidden message, I copied the Base64 string and decoded it using:</p>
-<p><img src="/Posts/CTF/assets/red_img/base64_decode.png"/></p>
+<p><img src="./assets/red_img/base64_decode.png"/></p>
 <p>After decoding, I found the flag:</p>
 <p>Flag:<strong>picoCTF{r3d_1s_th3_ult1m4t3_cur3_f0r_54dn355_}</strong></p>
 <h1>Lessons Learned:</h1>
@@ -106,7 +106,7 @@
 <p>This challenge reinforced the importance of metadata analysis and steganography detection in digital forensics. Although ExifTool didn't help this time, zsteg led me to the hidden message.</p>
 <p>Until next time, happy hacking!</p>
 <p><br /> <br />
-<a href="/">Back To Home</a>
+<a href="./index.html">Back To CTF</a>
 <br /></p>
 
       </section>

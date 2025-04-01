@@ -65,7 +65,7 @@
 <p>In this FlagHunters challenge, we were given a source code that resembled a server program displaying lyrics in order. However, the flag was hidden before the lyrics started displaying, and we needed to find a way to read it. Let’s break down how I approached solving this challenge.</p>
 
 
-<p><img src="/Posts/CTF/assets/flag_hunters/description.png" alt="challenge_description"/></p>
+<p><img src="./assets/flag_hunters/description.png" alt="challenge_description"/></p>
 
 <h1>Downloading and Inspecting the Source Code</h1>
 <p>As always, I started by downloading the challenge files:</p>
@@ -75,7 +75,7 @@
     <li>The flag is stored at the beginning of the output, but it is not shown directly.</li>
 <li>We need to find a way to read it before the lyrics start displaying.</li>
 </ul>
-<p><img src="/Posts/CTF/assets/flag_hunters/flag code.png" alt="tar_unzip"/></p>
+<p><img src="./assets/flag_hunters/flag code.png" alt="tar_unzip"/></p>
 
 <h1> Understanding Key Parts of the Code</h1>
 <p>The challenge included this interesting line of code:</p>
@@ -84,7 +84,7 @@
 <p>song_lines[lip] extracts a specific line from the lyrics list.</p>
 <p>.split(';') splits that line into separate parts wherever the semicolon (;) appears.</p>
 <p>This means that if we inject something like ;RETURN 0; into the input, the program will treat it as part of the lyrics processing logic, potentially letting us manipulate its behavior.</p>
-<p><img src="/Posts/CTF/assets/flag_hunters/split code.png"></p>
+<p><img src="./assets/flag_hunters/split code.png"></p>
 <p>Another crucial line of code was:</p>
 <p>re.match(r"RETURN [0-9]+", line)</p>
 <h3>What Does This Do?</h3>
@@ -97,11 +97,11 @@
 <p>We connected to the server using the given netcat command:</p>
 <p>Since we knew that the lyrics accepted user input, we injected a payload to force the program to return before displaying the lyrics and reveal the flag.</p>
 <p>After running our payload, the server stopped displaying the lyrics and instead revealed:</p>
-<p><img src="/Posts/CTF/assets/flag_hunters/flag.png"/></p>
+<p><img src="./assets/flag_hunters/flag.png"/></p>
 <p>Mission accomplished! 🚀</p>
 
 <p><br /> <br />
-<a href="/">Back To Home</a>
+<a href="/index.html">Back To Home</a>
 <br /></p>
 
       </section>

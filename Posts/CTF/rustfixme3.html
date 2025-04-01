@@ -49,7 +49,7 @@
 
     <header>
       <div class="container">
-        <a id="a-title" href="/">
+        <a id="a-title" href="/index.html">
           <h1>Mariquita🐞mariquita-sec#</h1>
         </a>
         <h2>I scan, I map, I exploit .... Red Team Princess—Crowned in Shells.!!!</h2>
@@ -65,23 +65,23 @@
 <p>If you're new here, I recommend checking out my RustFixMe1 and RustFixMe2 write-ups before diving into this one. This was another Rust challenge, and this time, it was all about fixing unsafe Rust code to make it safe.</p>
 
 
-<p><img src="/Posts/CTF/assets/rust3/description.png" alt="challenge_description"/></p>
+<p><img src="./assets/rust3/description.png" alt="challenge_description"/></p>
 
 <h1>Downloading and Extracting the Files</h1>
 <p>As always, I started by downloading the challenge files:</p>
 <p>The file came compressed as a .tar.gz, so I extracted it with:</p>
 
-<p><img src="/Posts/CTF/assets/rust3/tar.png" alt="tar_unzip"/></p>
+<p><img src="./assets/rust3/tar.png" alt="tar_unzip"/></p>
 <p>Inside, I found a Rust project with the main code located in src/main.rs</p>
 
 <h1> Analyzing the Error</h1>
 <p>After navigating to the project directory, I attempted to build the code:</p>
-<p><img src="/Posts/CTF/assets/rust3/cargo error.png" alt="cargoerror"/></p>
+<p><img src="./assets/rust3/cargo error.png" alt="cargoerror"/></p>
 <p>However, I was met with an error:</p>
 <p>The error E0133 occurs because Rust’s memory safety rules prevent calling unsafe functions unless explicitly marked inside an unsafe block.</p>
 <p>The error message tells us that std::slice::from_raw_parts() is an unsafe function, meaning that Rust cannot guarantee memory safety when calling it.</p>
 <p>Because of this, Rust requires such calls to be wrapped in an unsafe block.</p>
-<p><img src="/Posts/CTF/assets/rust3/original code.png"></p>
+<p><img src="./assets/rust3/original code.png"></p>
 <h1> Fixing the Unsafe Code</h1>
 <p>After analyzing the code , i found out that the unsafe function was commented, i removed the comments and ran the code</p>
 
@@ -89,7 +89,7 @@
 <p>cargo init      # Initialize Cargo project (if not already set up)</p>
    <p>cargo build     # Compile the code,</p>
    <p>cargo run       # Execute the program</p>
-<p><img src="/Posts/CTF/assets/rust3/flag.png"/></p>
+<p><img src="./assets/rust3/flag.png"/></p>
 <p>And just like that—I got the flag!</p>
 <p>This was a fun and straightforward challenge—easy peasy! 😎</p>
 
@@ -100,7 +100,7 @@
 <p>✅ Wrapping unsafe functions inside unsafe {} blocks is required to compile them.</p>
 
 <p><br /> <br />
-<a href="/">Back To Home</a>
+<a href="./index.html">Back To CTF</a>
 <br /></p>
 
       </section>

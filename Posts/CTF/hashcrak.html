@@ -64,36 +64,36 @@
 
 <p>In this challenge, I was provided with a netcat command to connect to a remote server. Upon connection, I received a series of hashed passwords and was required to crack them to retrieve the original plaintext values. The challenge tested my understanding of hashing algorithms and the importance of strong passwords.</p>
 
-<p><img src="/Posts/CTF/assets/hashcrack_img/crack description.png" alt="challenge_description"/></p>
+<p><img src="./assets/hashcrack_img/crack description.png" alt="challenge_description"/></p>
 
 <h1>Connecting to the Challenge</h1>
 <p>I used the provided Netcat (nc) command to establish a connection with the challenge server:</p>
 
-<p><img src="/Posts/CTF/assets/hashcrack_img/hashcrack nc.png" alt="nectcat_connection"/></p>
+<p><img src="./assets/hashcrack_img/hashcrack nc.png" alt="nectcat_connection"/></p>
 <p>Once connected, I was given a MD5 hash to crack.</p>
 
 <h1>Cracking the MD5 Hash</h1>
 <p>The first hash I received was an MD5 hash. Since MD5 is a weak hashing algorithm and vulnerable to dictionary attacks, I used CrackStation—an online hash-cracking tool.</p>
 <p>I copied the hash, pasted it into CrackStation, and obtained the plaintext password:</p>
-<p><img src="/Posts/CTF/assets/hashcrack_img/crackstation.png" alt="crackstation_img"/></p>
+<p><img src="./assets/hashcrack_img/crackstation.png" alt="crackstation_img"/></p>
 <p>I submitted this password, and the challenge provided me with a second hash—this time, a SHA-1 hash.</p>
 
 <h1>Cracking the SHA-1 Hash</h1>
 
 <p>Similar to the previous step, I copied the SHA-1 hash and used CrackStation to decrypt it. The tool successfully provided the next password, which I submitted to the server.</p>
-<p><img src="/Posts/CTF/assets/hashcrack_img/first hash.png"/></p>
-<p><img src="/Posts/CTF/assets/hashcrack_img/crackstation second.png"/></p>
+<p><img src="./assets/ hash.png"/></p>
+<p><img src="./assets/hashcrack_img/crackstation second.png"/></p>
 
 <h1>Cracking the SHA-256 Hash</h1>
 <p>After successfully cracking the SHA-1 hash, I was given a third hash—this time, a SHA-256 hash. I repeated the same process by pasting it into CrackStation, and the result was:</p>
-<p><img src="/Posts/CTF/assets/hashcrack_img/third hash.png"/></p>
-<p><img src="/Posts/CTF/assets/hashcrack_img/crackstation 3.png"/></p>
+<p><img src="./assets/hashcrack_img/third hash.png"/></p>
+<p><img src="./assets/hashcrack_img/crackstation 3.png"/></p>
 <p>I submitted this final password, and upon success, I received the flag!</p>
-<p><img src="/Posts/CTF/assets/hashcrack_img/last flag.png"/></p>
+<p><img src="./assets/hashcrack_img/last flag.png"/></p>
 <p>Flag:<strong>picoCTF{UseStr0nG_h@shEs_&PaSswDs!_869e658e}</strong>
 
 <p><br /> <br />
-<a href="/">Back To Home</a>
+<a href="./index.html">Back To CTF</a>
 <br /></p>
 
       </section>
